@@ -2,415 +2,679 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>For Puju ❤️</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <style>
+<meta name="theme-color" content="#f7c6d7">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>For Puju ❤️</title>
 
-        body {
-            min-height: 100vh;
 
-            background:
-                linear-gradient(
-                    rgba(255, 210, 225, 0.18),
-                    rgba(255, 210, 225, 0.18)
-                ),
-                url("teddy-bg.png");
+<style>
 
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
+/* =========================
+   BASIC RESET
+========================= */
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            font-family: Arial, sans-serif;
-            text-align: center;
 
-            overflow: hidden;
-        }
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
 
-        /* Main glass card */
+/* =========================
+   BACKGROUND
+========================= */
 
-        .container {
-            width: 92%;
-            max-width: 520px;
+body {
 
-            padding: 28px 18px;
+    min-height: 100vh;
+    min-height: 100svh;
 
-            background: rgba(255, 255, 255, 0.72);
+    overflow: hidden;
 
-            backdrop-filter: blur(7px);
-            -webkit-backdrop-filter: blur(7px);
+    font-family: Arial, sans-serif;
 
-            border-radius: 28px;
+    color: #4b3a40;
 
-            box-shadow:
-                0 15px 40px rgba(100, 40, 70, 0.15);
+    background-color: #f7c6d7;
 
-            position: relative;
-            z-index: 5;
-        }
+    background-image: url("teddy-bg.png");
 
+    background-position: center center;
 
-        /* Heading */
+    background-size: cover;
 
-        h1 {
-            color: #ed3f7d;
+    background-repeat: no-repeat;
+}
 
-            font-size: 38px;
 
-            margin-bottom: 18px;
+/* Soft background overlay */
 
-            text-shadow:
-                0 2px 5px rgba(255,255,255,0.8);
-        }
+body::before {
 
+    content: "";
 
-        /* Subtitle */
+    position: fixed;
 
-        .subtitle {
-            color: #444;
+    inset: 0;
 
-            font-size: 18px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,225,235,0.08),
+            rgba(255,205,220,0.25)
+        );
 
-            line-height: 1.7;
+    pointer-events: none;
 
-            margin-bottom: 20px;
-        }
+}
 
 
-        /* Countdown */
+/* =========================
+   MAIN COUNTDOWN SCREEN
+========================= */
 
-        .countdown {
-            display: grid;
+.screen {
 
-            grid-template-columns:
-                repeat(4, 1fr);
+    position: relative;
 
-            gap: 8px;
+    z-index: 2;
 
-            margin: 25px 0;
-        }
+    min-height: 100vh;
+    min-height: 100svh;
 
+    display: flex;
 
-        .box {
-            background: rgba(255,255,255,0.92);
+    flex-direction: column;
 
-            padding: 14px 5px;
+    align-items: center;
 
-            border-radius: 17px;
+    text-align: center;
 
-            box-shadow:
-                0 6px 18px rgba(100,40,70,0.12);
-        }
+    padding: clamp(45px, 9vh, 80px) 18px 25px;
+}
 
 
-        .number {
-            font-size: 28px;
+/* Decorative line */
 
-            font-weight: bold;
+.sparkle-line {
 
-            color: #ed3f7d;
-        }
+    color: #e94b86;
 
+    font-size: 20px;
 
-        .label {
-            font-size: 13px;
+    letter-spacing: 7px;
 
-            color: #555;
+    margin-bottom: 8px;
 
-            margin-top: 4px;
-        }
+    text-shadow:
+        0 1px 5px white;
+}
 
 
-        /* Bottom message */
+/* =========================
+   HEADING
+========================= */
 
-        .message {
-            margin-top: 20px;
+h1 {
 
-            font-size: 17px;
+    color: #e63f7d;
 
-            color: #444;
+    font-size: clamp(36px, 10vw, 48px);
 
-            line-height: 1.6;
-        }
+    line-height: 1.1;
 
+    margin-bottom: 20px;
 
-        /* VERY IMPORTANT */
+    text-shadow:
+        0 2px 8px rgba(255,255,255,0.9);
+}
 
-        .hidden {
-            display: none !important;
-        }
 
+/* =========================
+   TEXT
+========================= */
 
-        /* Birthday screen */
+.subtitle {
 
-        #birthdayMessage h1 {
-            font-size: 34px;
+    max-width: 520px;
 
-            line-height: 1.3;
-        }
+    font-size: clamp(17px, 4.6vw, 21px);
 
+    line-height: 1.65;
 
-        .birthday-text {
-            font-size: 17px;
+    text-shadow:
+        0 1px 5px rgba(255,255,255,0.9);
+}
 
-            line-height: 1.7;
 
-            color: #444;
+.wait {
 
-            margin-top: 15px;
-        }
+    margin-top: 15px;
 
+    font-style: italic;
 
-        /* Floating hearts */
+    font-size: 18px;
 
-        .heart {
-            position: fixed;
+    color: #654d56;
 
-            bottom: -40px;
+    text-shadow:
+        0 1px 5px white;
+}
 
-            font-size: 22px;
 
-            color: #ff6f9f;
+/* =========================
+   COUNTDOWN
+========================= */
 
-            animation:
-                floatHeart 7s linear forwards;
+.countdown {
 
-            z-index: 10;
+    width: min(500px, 94vw);
 
-            pointer-events: none;
+    display: grid;
 
-            opacity: 0.75;
-        }
+    grid-template-columns:
+        repeat(4, 1fr);
 
+    gap: 7px;
 
-        @keyframes floatHeart {
+    margin-top: 27px;
+}
 
-            0% {
-                transform:
-                    translateY(0)
-                    scale(0.8);
 
-                opacity: 0;
-            }
+.box {
 
-            15% {
-                opacity: 0.75;
-            }
+    background:
+        rgba(255,255,255,0.90);
 
-            100% {
-                transform:
-                    translateY(-110vh)
-                    scale(1.2);
+    border:
+        1px solid rgba(255,255,255,0.95);
 
-                opacity: 0;
-            }
-        }
+    border-radius: 18px;
 
+    padding: 13px 3px 11px;
 
-        /* Mobile */
+    box-shadow:
+        0 8px 22px
+        rgba(105,50,75,0.12);
+}
 
-        @media (max-width: 500px) {
 
-            body {
-                background-position: center center;
-            }
+.number {
 
-            .container {
-                width: 92%;
+    color: #e43f7d;
 
-                padding: 24px 14px;
+    font-size:
+        clamp(25px, 7vw, 34px);
 
-                border-radius: 24px;
-            }
+    font-weight: 700;
+}
 
-            h1 {
-                font-size: 34px;
-            }
 
-            .subtitle {
-                font-size: 17px;
-            }
+.label {
 
-            .countdown {
-                gap: 6px;
-            }
+    margin-top: 3px;
 
-            .box {
-                padding: 13px 3px;
+    color: #5b4b51;
 
-                border-radius: 15px;
-            }
+    font-size: 12px;
+}
 
-            .number {
-                font-size: 25px;
-            }
 
-            .label {
-                font-size: 12px;
-            }
+/* =========================
+   BOTTOM MESSAGE
+========================= */
 
-            .message {
-                font-size: 16px;
-            }
-        }
+.hint {
 
-    </style>
+    margin-top: 22px;
+
+    font-size: 16px;
+
+    text-shadow:
+        0 1px 5px white;
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =========================
+   BIRTHDAY SCREEN
+========================= */
+
+.birthday-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            rgba(255,185,210,0.35),
+            rgba(255,215,228,0.48)
+        ),
+        url("teddy-bg.png");
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-repeat:
+        no-repeat;
+}
+
+
+.birthday-card {
+
+    width: min(500px, 92vw);
+
+    padding: 32px 22px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.88);
+
+    box-shadow:
+        0 18px 50px
+        rgba(100,40,70,0.22);
+
+    animation:
+        pop 0.8s ease both;
+}
+
+
+.birthday-card h2 {
+
+    color: #e63f7d;
+
+    font-size:
+        clamp(35px, 10vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+
+.birthday-card p {
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+
+    position: fixed;
+
+    bottom: -35px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        floatUp linear forwards;
+
+    opacity: 0.65;
+}
+
+
+@keyframes floatUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.7)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+
+    12% {
+
+        opacity: 0.65;
+    }
+
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            scale(1.15)
+            rotate(20deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   BIRTHDAY POP
+========================= */
+
+@keyframes pop {
+
+    0% {
+
+        transform:
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+
+    70% {
+
+        transform:
+            scale(1.04);
+    }
+
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    z-index: 30;
+
+    font-size: 20px;
+
+    animation:
+        fall 3.5s linear forwards;
+}
+
+
+@keyframes fall {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .screen {
+
+        padding-top: 45px;
+
+    }
+
+
+    h1 {
+
+        font-size: 34px;
+
+        margin-bottom: 16px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 17px;
+
+        line-height: 1.55;
+
+    }
+
+
+    .wait {
+
+        font-size: 17px;
+
+    }
+
+
+    .countdown {
+
+        gap: 6px;
+
+        margin-top: 23px;
+
+    }
+
+
+    .box {
+
+        padding: 12px 3px 10px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .number {
+
+        font-size: 25px;
+
+    }
+
+
+    .label {
+
+        font-size: 12px;
+
+    }
+
+
+    .hint {
+
+        font-size: 15px;
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+/* Extra small phones */
+
+@media (max-width: 380px) {
+
+    .screen {
+
+        padding-top: 35px;
+
+    }
+
+
+    h1 {
+
+        font-size: 32px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 16px;
+
+    }
+
+
+    .countdown {
+
+        margin-top: 18px;
+
+    }
+
+}
+
+</style>
 
 </head>
+
 
 
 <body>
 
 
-    <div class="container">
+<!-- =================================
+     COUNTDOWN SCREEN
+================================= -->
+
+<main
+    id="countdownScreen"
+    class="screen">
 
 
-        <!-- BEFORE BIRTHDAY -->
-
-        <div id="countdownSection">
-
-            <h1>
-                Hey Puju ❤️
-            </h1>
+    <div class="sparkle-line">
+        ♡ ✦ ♡
+    </div>
 
 
-            <p class="subtitle">
-
-                ✨ Someone special was born on this day...
-
-                <br><br>
-
-                And that day is getting closer! 🎂💕
-
-                <br><br>
-
-                <i>Just a little wait...</i>
-
-            </p>
+    <h1>
+        Hey Puju ❤️
+    </h1>
 
 
-            <div class="countdown">
+    <p class="subtitle">
+
+        ✨ Someone special was born on this day...
+
+        <br>
+
+        And that day is getting closer! 🎂💕
+
+    </p>
 
 
-                <div class="box">
-
-                    <div
-                        class="number"
-                        id="days">
-                        0
-                    </div>
-
-                    <div class="label">
-                        Days
-                    </div>
-
-                </div>
+    <p class="wait">
+        Just a little wait...
+    </p>
 
 
-                <div class="box">
+    <!-- COUNTDOWN -->
 
-                    <div
-                        class="number"
-                        id="hours">
-                        0
-                    </div>
-
-                    <div class="label">
-                        Hours
-                    </div>
-
-                </div>
+    <div class="countdown">
 
 
-                <div class="box">
+        <div class="box">
 
-                    <div
-                        class="number"
-                        id="minutes">
-                        0
-                    </div>
-
-                    <div class="label">
-                        Minutes
-                    </div>
-
-                </div>
-
-
-                <div class="box">
-
-                    <div
-                        class="number"
-                        id="seconds">
-                        0
-                    </div>
-
-                    <div class="label">
-                        Seconds
-                    </div>
-
-                </div>
-
-
+            <div
+                class="number"
+                id="days">
+                0
             </div>
 
-
-            <p class="message">
-
-                Thoda sa patience...
-                good things take time 💕
-
-
-            </p>
-
+            <div class="label">
+                Days
+            </div>
 
         </div>
 
 
+        <div class="box">
 
-        <!-- BIRTHDAY SCREEN -->
+            <div
+                class="number"
+                id="hours">
+                0
+            </div>
 
-        <div
-            id="birthdayMessage"
-            class="hidden">
+            <div class="label">
+                Hours
+            </div>
+
+        </div>
 
 
-            <h1>
-                🎉 Happy Birthday<br>
-                Puju! 🎂❤️
-            </h1>
+        <div class="box">
+
+            <div
+                class="number"
+                id="minutes">
+                0
+            </div>
+
+            <div class="label">
+                Minutes
+            </div>
+
+        </div>
 
 
-            <p class="birthday-text">
+        <div class="box">
 
-                Wishing you endless smiles,
-                happiness and beautiful memories. 💕
+            <div
+                class="number"
+                id="seconds">
+                0
+            </div>
 
-                <br><br>
-
-                Today is officially
-                <b>YOUR DAY!</b> ✨
-
-                <br><br>
-
-                Thank you for being such
-                a wonderful person 😊
-
-            </p>
-
+            <div class="label">
+                Seconds
+            </div>
 
         </div>
 
@@ -418,178 +682,389 @@
     </div>
 
 
+    <p class="hint">
 
-    <script>
+        Thoda sa patience...
+        good things take time 💕
 
-
-        // Birthday:
-        // 19 September 2026
-        // 12:00 AM IST
-
-        const birthday =
-            new Date(
-                "September 19, 2026 00:00:00"
-            ).getTime();
+    </p>
 
 
-        function updateCountdown() {
+</main>
 
 
-            const now =
-                new Date().getTime();
+
+<!-- =================================
+     BIRTHDAY SCREEN
+================================= -->
+
+<section
+    id="birthdayScreen"
+    class="birthday-screen hidden">
 
 
-            const distance =
-                birthday - now;
+    <div class="birthday-card">
 
 
-            // Birthday reached
+        <div
+            style="
+            font-size:54px;
+            margin-bottom:8px;
+            ">
 
-            if (distance <= 0) {
+            🧸🎂
 
-
-                document
-                    .getElementById(
-                        "countdownSection"
-                    )
-                    .classList
-                    .add("hidden");
+        </div>
 
 
-                document
-                    .getElementById(
-                        "birthdayMessage"
-                    )
-                    .classList
-                    .remove("hidden");
+        <h2>
+
+            Happy Birthday
+            <br>
+            Puju! ❤️
+
+        </h2>
 
 
-                return;
+        <p>
 
-            }
+            Wishing you endless smiles,
+            happiness and beautiful memories. 💕
 
+            <br><br>
 
-            const days =
-                Math.floor(
-                    distance /
-                    (1000 * 60 * 60 * 24)
-                );
+            Today is officially
+            <b>YOUR DAY!</b> ✨
 
+            <br><br>
 
-            const hours =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60 * 24))
-                    /
-                    (1000 * 60 * 60)
-                );
+            Thank you for being such
+            a wonderful person 😊
+
+        </p>
 
 
-            const minutes =
-                Math.floor(
-                    (distance %
-                        (1000 * 60 * 60))
-                    /
-                    (1000 * 60)
-                );
+    </div>
 
 
-            const seconds =
-                Math.floor(
-                    (distance %
-                        (1000 * 60))
-                    /
-                    1000
-                );
+</section>
 
 
-            document.getElementById(
-                "days"
-            ).innerText = days;
+
+<script>
 
 
-            document.getElementById(
-                "hours"
-            ).innerText = hours;
+/* =================================
+   BIRTHDAY DATE
+================================= */
+
+const birthday =
+    new Date(
+        "2026-09-19T00:00:00+05:30"
+    ).getTime();
 
 
-            document.getElementById(
-                "minutes"
-            ).innerText = minutes;
+
+const countdownScreen =
+    document.getElementById(
+        "countdownScreen"
+    );
 
 
-            document.getElementById(
-                "seconds"
-            ).innerText = seconds;
-
-        }
-
-
-        updateCountdown();
+const birthdayScreen =
+    document.getElementById(
+        "birthdayScreen"
+    );
 
 
-        setInterval(
-            updateCountdown,
+
+/* =================================
+   COUNTDOWN
+================================= */
+
+function updateCountdown() {
+
+
+    const now =
+        Date.now();
+
+
+    const distance =
+        birthday - now;
+
+
+
+    /* Birthday reached */
+
+    if (distance <= 0) {
+
+
+        countdownScreen
+            .classList
+            .add("hidden");
+
+
+        birthdayScreen
+            .classList
+            .remove("hidden");
+
+
+        startConfetti();
+
+
+        return;
+
+    }
+
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            )
+            /
+            (1000 * 60 * 60)
+
+        );
+
+
+    const minutes =
+        Math.floor(
+
+            (
+                distance %
+                (1000 * 60 * 60)
+            )
+            /
+            (1000 * 60)
+
+        );
+
+
+    const seconds =
+        Math.floor(
+
+            (
+                distance %
+                (1000 * 60)
+            )
+            /
             1000
+
         );
 
 
 
-        // Floating hearts
+    document.getElementById(
+        "days"
+    ).textContent =
+        days;
 
-        function createHeart() {
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
-            const heart =
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes).padStart(
+            2,
+            "0"
+        );
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds).padStart(
+            2,
+            "0"
+        );
+
+}
+
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+function createHeart() {
+
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.className =
+        "heart";
+
+
+    heart.textContent =
+        Math.random() > 0.5
+        ? "♡"
+        : "💕";
+
+
+    heart.style.left =
+        Math.random() * 100 +
+        "vw";
+
+
+    heart.style.fontSize =
+        (
+            16 +
+            Math.random() * 14
+        ) +
+        "px";
+
+
+    heart.style.animationDuration =
+        (
+            6 +
+            Math.random() * 4
+        ) +
+        "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(
+        () => heart.remove(),
+        10000
+    );
+
+}
+
+
+setInterval(
+    createHeart,
+    1300
+);
+
+
+
+/* =================================
+   BIRTHDAY CONFETTI
+================================= */
+
+let confettiStarted =
+    false;
+
+
+
+function startConfetti() {
+
+
+    if (confettiStarted)
+        return;
+
+
+    confettiStarted =
+        true;
+
+
+
+    setInterval(() => {
+
+
+        for (
+            let i = 0;
+            i < 8;
+            i++
+        ) {
+
+
+            const c =
                 document.createElement(
                     "div"
                 );
 
 
-            heart.className =
-                "heart";
+            c.className =
+                "confetti";
 
 
-            heart.innerHTML =
-                Math.random() > 0.5
-                ? "❤️"
-                : "💕";
+            c.style.left =
+                Math.random() * 100 +
+                "vw";
 
 
-            heart.style.left =
-                Math.random() * 100 + "vw";
+            c.style.animationDuration =
+                (
+                    2.5 +
+                    Math.random() * 2
+                ) +
+                "s";
 
 
-            heart.style.fontSize =
-                (16 + Math.random() * 14)
-                + "px";
+            const shapes = [
+                "🎉",
+                "💕",
+                "✨",
+                "🎀",
+                "💗"
+            ];
 
 
-            heart.style.animationDuration =
-                (6 + Math.random() * 4)
-                + "s";
+            c.textContent =
+                shapes[
+                    Math.floor(
+                        Math.random() *
+                        shapes.length
+                    )
+                ];
 
 
             document.body.appendChild(
-                heart
+                c
             );
 
 
             setTimeout(
-                () => heart.remove(),
-                10000
+                () => c.remove(),
+                5000
             );
 
         }
 
 
-        setInterval(
-            createHeart,
-            900
-        );
+    }, 700);
 
+}
 
-    </script>
+</script>
 
 
 </body>
