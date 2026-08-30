@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Puju ❤️</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        height:100vh;
+        background: linear-gradient(135deg,#ffd6e7,#ffeef5);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        color:#444;
+        overflow:hidden;
+    }
+
+    .container{
+        background: rgba(255,255,255,0.7);
+        padding:40px;
+        border-radius:25px;
+        backdrop-filter: blur(10px);
+        box-shadow:0 10px 30px rgba(0,0,0,0.1);
+        max-width:500px;
+    }
+
+    h1{
+        color:#ff4f8b;
+        margin-bottom:15px;
+    }
+
+    .subtitle{
+        margin-bottom:25px;
+        font-size:18px;
+    }
+
+    .countdown{
+        display:flex;
+        justify-content:center;
+        gap:15px;
+        margin:25px 0;
+    }
+
+    .box{
+        background:white;
+        padding:15px;
+        border-radius:15px;
+        min-width:80px;
+        box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .number{
+        font-size:30px;
+        font-weight:bold;
+        color:#ff4f8b;
+    }
+
+    .label{
+        font-size:14px;
+    }
+
+    .message{
+        margin-top:20px;
+        font-size:17px;
+    }
+
+    .hidden{
+        display:none;
+    }
+
+    .heart{
+        position:absolute;
+        color:#ff7aa8;
+        animation: float 8s linear infinite;
+    }
+
+    @keyframes float{
+        from{
+            transform:translateY(100vh);
+            opacity:1;
+        }
+        to{
+            transform:translateY(-100px);
+            opacity:0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hey Puju ❤️</h1>
+
+    <p class="subtitle">
+        Someone has been secretly preparing something for you 👀✨
+    </p>
+
+    <div id="countdownSection">
+        <div class="countdown">
+            <div class="box">
+                <div class="number" id="days">0</div>
+                <div class="label">Days</div>
+            </div>
+
+            <div class="box">
+                <div class="number" id="hours">0</div>
+                <div class="label">Hours</div>
+            </div>
+
+            <div class="box">
+                <div class="number" id="minutes">0</div>
+                <div class="label">Minutes</div>
+            </div>
+
+            <div class="box">
+                <div class="number" id="seconds">0</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+
+        <p class="message">
+            Thoda sa patience... good things take time 💕
+        </p>
+    </div>
+
+    <div id="birthdayMessage" class="hidden">
+        <h1>🎉 Happy Birthday Puju! 🎂❤️</h1>
+
+        <p class="message">
+            Wishing you endless smiles, happiness and beautiful memories.
+            Today is officially your day ✨💕
+        </p>
+
+        <br>
+
+        <p>
+            Thank you for being such a wonderful person 😊
+        </p>
+    </div>
+</div>
+
+<script>
+
+const birthday = new Date("September 19, 2026 00:00:00").getTime();
+
+setInterval(() => {
+
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if(distance <= 0){
+        document.getElementById("countdownSection").style.display="none";
+        document.getElementById("birthdayMessage").classList.remove("hidden");
+        return;
+    }
+
+    document.getElementById("days").innerHTML =
+        Math.floor(distance / (1000*60*60*24));
+
+    document.getElementById("hours").innerHTML =
+        Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+    document.getElementById("minutes").innerHTML =
+        Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    document.getElementById("seconds").innerHTML =
+        Math.floor((distance % (1000*60)) / 1000);
+
+},1000);
+
+
+// Floating hearts
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.innerHTML="❤️";
+    heart.classList.add("heart");
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(20+Math.random()*20)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+},500);
+
+</script>
+
+</body>
+</html>
