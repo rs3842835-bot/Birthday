@@ -2,575 +2,705 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta charset="UTF-8">
 
-<meta name="theme-color" content="#f7c6d7">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>For Puju ❤️</title>
+    <meta name="theme-color"
+          content="#f8c8d8">
 
+    <title>For Puju ❤️</title>
 
-<style>
 
-/* =========================
-   BASIC RESET
-========================= */
+    <!-- Cute & clean fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
-}
 
+    <style>
 
-/* =========================
-   BACKGROUND
-========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
 
-    min-height: 100vh;
-    min-height: 100svh;
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
 
-    overflow: hidden;
 
-    font-family: Arial, sans-serif;
+        body {
 
-    color: #4b3a40;
+            min-height: 100vh;
 
-    background-color: #f7c6d7;
+            overflow: hidden;
 
-    background-image: url("teddy-bg.png");
+            font-family: 'Poppins', sans-serif;
 
-    background-position: center center;
+            color: #493c42;
 
-    background-size: cover;
+            background:
+                #f7c7d7
+                url("teddy-bg.png")
+                center center /
+                cover
+                no-repeat;
+        }
 
-    background-repeat: no-repeat;
-}
 
+        /* Soft pink overlay */
 
-/* Soft background overlay */
+        body::before {
 
-body::before {
+            content: "";
 
-    content: "";
+            position: fixed;
 
-    position: fixed;
+            inset: 0;
 
-    inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255, 220, 232, 0.05),
+                    rgba(255, 200, 220, 0.18)
+                );
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,225,235,0.08),
-            rgba(255,205,220,0.25)
-        );
+            pointer-events: none;
 
-    pointer-events: none;
+            z-index: 0;
+        }
 
-}
 
 
-/* =========================
-   MAIN COUNTDOWN SCREEN
-========================= */
+        /* ==================================
+           MAIN SCREEN
+        ================================== */
 
-.screen {
+        .screen {
 
-    position: relative;
+            position: relative;
 
-    z-index: 2;
+            z-index: 2;
 
-    min-height: 100vh;
-    min-height: 100svh;
+            width: 100%;
 
-    display: flex;
+            min-height: 100vh;
 
-    flex-direction: column;
+            display: flex;
 
-    align-items: center;
+            flex-direction: column;
 
-    text-align: center;
+            align-items: center;
 
-    padding: clamp(45px, 9vh, 80px) 18px 25px;
-}
+            text-align: center;
 
+            padding:
+                clamp(35px, 7vh, 65px)
+                18px
+                25px;
+        }
 
-/* Decorative line */
 
-.sparkle-line {
 
-    color: #e94b86;
+        /* ==================================
+           TOP DECORATION
+        ================================== */
 
-    font-size: 20px;
+        .sparkle-line {
 
-    letter-spacing: 7px;
+            color: #e64b86;
 
-    margin-bottom: 8px;
+            font-size: 20px;
 
-    text-shadow:
-        0 1px 5px white;
-}
+            letter-spacing: 8px;
 
+            margin-bottom: 8px;
 
-/* =========================
-   HEADING
-========================= */
+            text-shadow:
+                0 2px 8px white;
+        }
 
-h1 {
 
-    color: #e63f7d;
 
-    font-size: clamp(36px, 10vw, 48px);
+        /* ==================================
+           HEADING
+        ================================== */
 
-    line-height: 1.1;
+        h1 {
 
-    margin-bottom: 20px;
+            font-family:
+                'Dancing Script',
+                cursive;
 
-    text-shadow:
-        0 2px 8px rgba(255,255,255,0.9);
-}
+            font-size:
+                clamp(48px, 13vw, 66px);
 
+            font-weight: 700;
 
-/* =========================
-   TEXT
-========================= */
+            line-height: 1;
 
-.subtitle {
+            color: #e83f7c;
 
-    max-width: 520px;
+            margin-bottom: 18px;
 
-    font-size: clamp(17px, 4.6vw, 21px);
+            text-shadow:
+                0 3px 10px
+                rgba(255,255,255,0.9);
+        }
 
-    line-height: 1.65;
 
-    text-shadow:
-        0 1px 5px rgba(255,255,255,0.9);
-}
 
+        /* ==================================
+           MAIN MESSAGE
+        ================================== */
 
-.wait {
+        .subtitle {
 
-    margin-top: 15px;
+            max-width: 570px;
 
-    font-style: italic;
+            font-size:
+                clamp(16px, 4.3vw, 20px);
 
-    font-size: 18px;
+            line-height: 1.75;
 
-    color: #654d56;
+            font-weight: 500;
 
-    text-shadow:
-        0 1px 5px white;
-}
+            color: #4e4147;
 
+            text-shadow:
+                0 1px 5px
+                rgba(255,255,255,0.9);
+        }
 
-/* =========================
-   COUNTDOWN
-========================= */
 
-.countdown {
+        .subtitle .special {
 
-    width: min(500px, 94vw);
+            color: #df3e78;
 
-    display: grid;
+            font-weight: 600;
+        }
 
-    grid-template-columns:
-        repeat(4, 1fr);
 
-    gap: 7px;
 
-    margin-top: 27px;
-}
+        /* ==================================
+           WAIT TEXT
+        ================================== */
 
+        .wait {
 
-.box {
+            margin-top: 15px;
 
-    background:
-        rgba(255,255,255,0.90);
+            font-family:
+                'Dancing Script',
+                cursive;
 
-    border:
-        1px solid rgba(255,255,255,0.95);
+            font-size:
+                clamp(23px, 6vw, 28px);
 
-    border-radius: 18px;
+            font-weight: 600;
 
-    padding: 13px 3px 11px;
+            color: #73545f;
 
-    box-shadow:
-        0 8px 22px
-        rgba(105,50,75,0.12);
-}
+            text-shadow:
+                0 2px 7px white;
+        }
 
 
-.number {
 
-    color: #e43f7d;
+        /* ==================================
+           COUNTDOWN
+        ================================== */
 
-    font-size:
-        clamp(25px, 7vw, 34px);
+        .countdown {
 
-    font-weight: 700;
-}
+            width: min(520px, 96vw);
 
+            display: grid;
 
-.label {
+            grid-template-columns:
+                repeat(4, 1fr);
 
-    margin-top: 3px;
+            gap: 8px;
 
-    color: #5b4b51;
+            margin-top: 24px;
+        }
 
-    font-size: 12px;
-}
 
+        .box {
 
-/* =========================
-   BOTTOM MESSAGE
-========================= */
+            background:
+                rgba(255,255,255,0.91);
 
-.hint {
+            border:
+                1px solid
+                rgba(255,255,255,0.95);
 
-    margin-top: 22px;
+            border-radius: 18px;
 
-    font-size: 16px;
+            padding:
+                12px
+                3px
+                10px;
 
-    text-shadow:
-        0 1px 5px white;
-}
+            box-shadow:
+                0 8px 25px
+                rgba(116,55,78,0.13);
 
+            backdrop-filter:
+                blur(5px);
+        }
 
-/* =========================
-   HIDDEN
-========================= */
 
-.hidden {
+        .number {
 
-    display: none !important;
-}
+            font-family:
+                'Poppins',
+                sans-serif;
 
+            color: #df3f7a;
 
-/* =========================
-   BIRTHDAY SCREEN
-========================= */
+            font-size:
+                clamp(25px, 7vw, 34px);
 
-.birthday-screen {
+            font-weight: 700;
 
-    position: fixed;
+            line-height: 1.2;
+        }
 
-    inset: 0;
 
-    z-index: 20;
+        .label {
 
-    display: flex;
+            margin-top: 4px;
 
-    align-items: center;
+            color: #5b4d53;
 
-    justify-content: center;
+            font-size: 12px;
 
-    text-align: center;
+            font-weight: 500;
+        }
 
-    padding: 25px;
 
-    background:
-        linear-gradient(
-            rgba(255,185,210,0.35),
-            rgba(255,215,228,0.48)
-        ),
-        url("teddy-bg.png");
 
-    background-position:
-        center center;
+        /* ==================================
+           BOTTOM MESSAGE
+        ================================== */
 
-    background-size:
-        cover;
+        .hint {
 
-    background-repeat:
-        no-repeat;
-}
+            margin-top: 21px;
 
+            font-family:
+                'Dancing Script',
+                cursive;
 
-.birthday-card {
+            font-size:
+                clamp(21px, 5.5vw, 26px);
 
-    width: min(500px, 92vw);
+            font-weight: 600;
 
-    padding: 32px 22px;
+            color: #674d57;
 
-    border-radius: 30px;
+            text-shadow:
+                0 2px 7px white;
+        }
 
-    background:
-        rgba(255,255,255,0.88);
 
-    box-shadow:
-        0 18px 50px
-        rgba(100,40,70,0.22);
 
-    animation:
-        pop 0.8s ease both;
-}
+        /* ==================================
+           FLOATING HEARTS
+        ================================== */
 
+        .heart {
 
-.birthday-card h2 {
+            position: fixed;
 
-    color: #e63f7d;
+            bottom: -40px;
 
-    font-size:
-        clamp(35px, 10vw, 48px);
+            z-index: 5;
 
-    line-height: 1.15;
+            pointer-events: none;
 
-    margin-bottom: 18px;
-}
+            opacity: 0.65;
 
+            animation:
+                floatUp
+                linear
+                forwards;
+        }
 
-.birthday-card p {
 
-    font-size: 17px;
+        @keyframes floatUp {
 
-    line-height: 1.7;
+            0% {
 
-    color: #444;
-}
+                transform:
+                    translateY(0)
+                    scale(0.7)
+                    rotate(0deg);
 
+                opacity: 0;
+            }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+            15% {
+                opacity: 0.65;
+            }
 
-.heart {
+            100% {
 
-    position: fixed;
+                transform:
+                    translateY(-110vh)
+                    scale(1.15)
+                    rotate(18deg);
 
-    bottom: -35px;
+                opacity: 0;
+            }
+        }
 
-    z-index: 10;
 
-    pointer-events: none;
 
-    animation:
-        floatUp linear forwards;
+        /* ==================================
+           HIDDEN
+        ================================== */
 
-    opacity: 0.65;
-}
+        .hidden {
+            display: none !important;
+        }
 
 
-@keyframes floatUp {
 
-    0% {
+        /* ==================================
+           BIRTHDAY SCREEN
+        ================================== */
 
-        transform:
-            translateY(0)
-            scale(0.7)
-            rotate(0deg);
+        .birthday-screen {
 
-        opacity: 0;
-    }
+            position: fixed;
 
+            inset: 0;
 
-    12% {
+            z-index: 20;
 
-        opacity: 0.65;
-    }
+            display: flex;
 
+            align-items: center;
 
-    100% {
+            justify-content: center;
 
-        transform:
-            translateY(-110vh)
-            scale(1.15)
-            rotate(20deg);
+            text-align: center;
 
-        opacity: 0;
-    }
-}
+            padding: 22px;
 
+            background:
 
-/* =========================
-   BIRTHDAY POP
-========================= */
+                linear-gradient(
+                    rgba(255, 190, 215, 0.30),
+                    rgba(255, 215, 230, 0.45)
+                ),
 
-@keyframes pop {
+                url("teddy-bg.png")
+                center center /
+                cover
+                no-repeat;
+        }
 
-    0% {
 
-        transform:
-            scale(0.7);
 
-        opacity: 0;
-    }
+        .birthday-card {
 
+            width:
+                min(500px, 92vw);
 
-    70% {
+            padding:
+                34px
+                22px
+                36px;
 
-        transform:
-            scale(1.04);
-    }
+            border-radius: 30px;
 
+            background:
+                rgba(255,255,255,0.89);
 
-    100% {
+            box-shadow:
+                0 20px 55px
+                rgba(105,45,75,0.22);
 
-        transform:
-            scale(1);
+            backdrop-filter:
+                blur(7px);
 
-        opacity: 1;
-    }
-}
+            animation:
+                birthdayPop
+                0.8s
+                ease
+                both;
+        }
 
 
-/* =========================
-   CONFETTI
-========================= */
+        .teddy {
 
-.confetti {
+            font-size: 55px;
 
-    position: fixed;
+            margin-bottom: 8px;
+        }
 
-    top: -20px;
 
-    z-index: 30;
+        .birthday-card h2 {
 
-    font-size: 20px;
+            font-family:
+                'Dancing Script',
+                cursive;
 
-    animation:
-        fall 3.5s linear forwards;
-}
+            color: #e33d78;
 
+            font-size:
+                clamp(45px, 12vw, 62px);
 
-@keyframes fall {
+            line-height: 1.05;
 
-    to {
+            margin-bottom: 20px;
 
-        transform:
-            translateY(110vh)
-            rotate(720deg);
+            font-weight: 700;
+        }
 
-        opacity: 0;
-    }
-}
 
+        .birthday-card p {
 
-/* =========================
-   MOBILE
-========================= */
+            font-family:
+                'Poppins',
+                sans-serif;
 
-@media (max-width: 500px) {
+            font-size: 16px;
 
-    .screen {
+            line-height: 1.8;
 
-        padding-top: 45px;
+            color: #51444a;
+        }
 
-    }
 
+        .birthday-card .wish {
 
-    h1 {
+            font-family:
+                'Dancing Script',
+                cursive;
 
-        font-size: 34px;
+            font-size: 25px;
 
-        margin-bottom: 16px;
+            color: #df3d78;
 
-    }
+            margin-top: 18px;
 
+            font-weight: 600;
+        }
 
-    .subtitle {
 
-        font-size: 17px;
+        @keyframes birthdayPop {
 
-        line-height: 1.55;
+            0% {
 
-    }
+                transform:
+                    scale(0.65);
 
+                opacity: 0;
+            }
 
-    .wait {
+            70% {
 
-        font-size: 17px;
+                transform:
+                    scale(1.04);
+            }
 
-    }
+            100% {
 
+                transform:
+                    scale(1);
 
-    .countdown {
+                opacity: 1;
+            }
+        }
 
-        gap: 6px;
 
-        margin-top: 23px;
 
-    }
+        /* ==================================
+           CONFETTI
+        ================================== */
 
+        .confetti {
 
-    .box {
+            position: fixed;
 
-        padding: 12px 3px 10px;
+            top: -30px;
 
-        border-radius: 16px;
+            z-index: 30;
 
-    }
+            font-size: 20px;
 
+            pointer-events: none;
 
-    .number {
+            animation:
+                fall
+                3.5s
+                linear
+                forwards;
+        }
 
-        font-size: 25px;
 
-    }
+        @keyframes fall {
 
+            to {
 
-    .label {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
 
-        font-size: 12px;
+                opacity: 0;
+            }
+        }
 
-    }
 
 
-    .hint {
+        /* ==================================
+           MOBILE
+        ================================== */
 
-        font-size: 15px;
+        @media (max-width: 500px) {
 
-        margin-top: 20px;
+            .screen {
 
-    }
+                padding-top:
+                    34px;
+            }
 
-}
 
+            h1 {
 
-/* Extra small phones */
+                font-size: 52px;
 
-@media (max-width: 380px) {
+                margin-bottom: 15px;
+            }
 
-    .screen {
 
-        padding-top: 35px;
+            .subtitle {
 
-    }
+                font-size: 16px;
 
+                line-height: 1.65;
+            }
 
-    h1 {
 
-        font-size: 32px;
+            .wait {
 
-    }
+                font-size: 24px;
 
+                margin-top: 12px;
+            }
 
-    .subtitle {
 
-        font-size: 16px;
+            .countdown {
 
-    }
+                margin-top: 21px;
 
+                gap: 6px;
+            }
 
-    .countdown {
 
-        margin-top: 18px;
+            .box {
 
-    }
+                padding:
+                    11px
+                    2px
+                    10px;
 
-}
+                border-radius: 17px;
+            }
 
-</style>
+
+            .number {
+
+                font-size: 26px;
+            }
+
+
+            .label {
+
+                font-size: 11px;
+            }
+
+
+            .hint {
+
+                font-size: 21px;
+
+                margin-top: 18px;
+            }
+
+        }
+
+
+
+        /* ==================================
+           VERY SMALL PHONES
+        ================================== */
+
+        @media (max-width: 380px) {
+
+            .screen {
+
+                padding-top: 27px;
+            }
+
+
+            h1 {
+
+                font-size: 46px;
+            }
+
+
+            .subtitle {
+
+                font-size: 15px;
+
+                line-height: 1.55;
+            }
+
+
+            .wait {
+
+                font-size: 22px;
+            }
+
+
+            .countdown {
+
+                margin-top: 17px;
+            }
+
+
+            .number {
+
+                font-size: 23px;
+            }
+
+
+            .hint {
+
+                font-size: 19px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -579,494 +709,515 @@ h1 {
 <body>
 
 
-<!-- =================================
-     COUNTDOWN SCREEN
-================================= -->
+    <!-- ==================================
+         COUNTDOWN PAGE
+    ================================== -->
 
-<main
-    id="countdownScreen"
-    class="screen">
-
-
-    <div class="sparkle-line">
-        ♡ ✦ ♡
-    </div>
+    <main
+        id="countdownScreen"
+        class="screen">
 
 
-    <h1>
-        Hey Puju ❤️
-    </h1>
-
-
-    <p class="subtitle">
-
-        ✨ Someone special was born on this day...
-
-        <br>
-
-        And that day is getting closer! 🎂💕
-
-    </p>
-
-
-    <p class="wait">
-        Just a little wait...
-    </p>
-
-
-    <!-- COUNTDOWN -->
-
-    <div class="countdown">
-
-
-        <div class="box">
-
-            <div
-                class="number"
-                id="days">
-                0
-            </div>
-
-            <div class="label">
-                Days
-            </div>
-
+        <div class="sparkle-line">
+            ♡ ✦ ♡
         </div>
 
 
-        <div class="box">
-
-            <div
-                class="number"
-                id="hours">
-                0
-            </div>
-
-            <div class="label">
-                Hours
-            </div>
-
-        </div>
+        <h1>
+            Hey Puju ❤️
+        </h1>
 
 
-        <div class="box">
+        <p class="subtitle">
 
-            <div
-                class="number"
-                id="minutes">
-                0
-            </div>
+            ✨ Some days are a little more
+            special than others...
 
-            <div class="label">
-                Minutes
-            </div>
-
-        </div>
-
-
-        <div class="box">
-
-            <div
-                class="number"
-                id="seconds">
-                0
-            </div>
-
-            <div class="label">
-                Seconds
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <p class="hint">
-
-        Thoda sa patience...
-        good things take time 💕
-
-    </p>
-
-
-</main>
-
-
-
-<!-- =================================
-     BIRTHDAY SCREEN
-================================= -->
-
-<section
-    id="birthdayScreen"
-    class="birthday-screen hidden">
-
-
-    <div class="birthday-card">
-
-
-        <div
-            style="
-            font-size:54px;
-            margin-bottom:8px;
-            ">
-
-            🧸🎂
-
-        </div>
-
-
-        <h2>
-
-            Happy Birthday
             <br>
-            Puju! ❤️
 
-        </h2>
+            Because someone
+            <span class="special">
+                pretty special
+            </span>
+            was born on one of them. 🧸💕
 
+            <br>
 
-        <p>
-
-            Wishing you endless smiles,
-            happiness and beautiful memories. 💕
-
-            <br><br>
-
-            Today is officially
-            <b>YOUR DAY!</b> ✨
-
-            <br><br>
-
-            Thank you for being such
-            a wonderful person 😊
+            And that day is getting closer...
+            🎂✨
 
         </p>
 
 
-    </div>
-
-
-</section>
-
-
-
-<script>
-
-
-/* =================================
-   BIRTHDAY DATE
-================================= */
-
-const birthday =
-    new Date(
-        "2026-09-19T00:00:00+05:30"
-    ).getTime();
+        <p class="wait">
+            Just a tiny little wait... 💗
+        </p>
 
 
 
-const countdownScreen =
-    document.getElementById(
-        "countdownScreen"
-    );
+        <!-- COUNTDOWN -->
+
+        <div class="countdown">
 
 
-const birthdayScreen =
-    document.getElementById(
-        "birthdayScreen"
-    );
+            <div class="box">
 
+                <div
+                    class="number"
+                    id="days">
+                    0
+                </div>
 
+                <div class="label">
+                    Days
+                </div>
 
-/* =================================
-   COUNTDOWN
-================================= */
-
-function updateCountdown() {
-
-
-    const now =
-        Date.now();
-
-
-    const distance =
-        birthday - now;
+            </div>
 
 
 
-    /* Birthday reached */
+            <div class="box">
 
-    if (distance <= 0) {
+                <div
+                    class="number"
+                    id="hours">
+                    0
+                </div>
 
+                <div class="label">
+                    Hours
+                </div>
 
-        countdownScreen
-            .classList
-            .add("hidden");
-
-
-        birthdayScreen
-            .classList
-            .remove("hidden");
-
-
-        startConfetti();
-
-
-        return;
-
-    }
+            </div>
 
 
 
-    const days =
-        Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
-        );
+            <div class="box">
+
+                <div
+                    class="number"
+                    id="minutes">
+                    0
+                </div>
+
+                <div class="label">
+                    Minutes
+                </div>
+
+            </div>
 
 
-    const hours =
-        Math.floor(
 
-            (
-                distance %
-                (1000 * 60 * 60 * 24)
-            )
-            /
-            (1000 * 60 * 60)
+            <div class="box">
 
-        );
+                <div
+                    class="number"
+                    id="seconds">
+                    0
+                </div>
 
+                <div class="label">
+                    Seconds
+                </div>
 
-    const minutes =
-        Math.floor(
-
-            (
-                distance %
-                (1000 * 60 * 60)
-            )
-            /
-            (1000 * 60)
-
-        );
+            </div>
 
 
-    const seconds =
-        Math.floor(
+        </div>
 
-            (
-                distance %
-                (1000 * 60)
-            )
-            /
+
+
+        <p class="hint">
+            Good things are worth waiting for... 🌸
+        </p>
+
+
+    </main>
+
+
+
+    <!-- ==================================
+         BIRTHDAY SCREEN
+    ================================== -->
+
+    <section
+        id="birthdayScreen"
+        class="birthday-screen hidden">
+
+
+        <div class="birthday-card">
+
+
+            <div class="teddy">
+                🧸🎂
+            </div>
+
+
+            <h2>
+
+                Happy Birthday
+                <br>
+                Puju! ❤️
+
+            </h2>
+
+
+            <p>
+
+                Wishing you endless smiles,
+                happiness and beautiful memories. 💕
+
+                <br><br>
+
+                Today is officially
+                <b>YOUR DAY!</b> ✨
+
+                <br><br>
+
+                Thank you for being such
+                a wonderful person 😊
+
+            </p>
+
+
+            <p class="wish">
+
+                Keep smiling always... 💗
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <script>
+
+
+        /* ==================================
+           BIRTHDAY DATE
+
+           19 September 2026
+           12:00 AM IST
+        ================================== */
+
+        const birthday =
+            new Date(
+                "2026-09-19T00:00:00+05:30"
+            ).getTime();
+
+
+
+        const countdownScreen =
+            document.getElementById(
+                "countdownScreen"
+            );
+
+
+        const birthdayScreen =
+            document.getElementById(
+                "birthdayScreen"
+            );
+
+
+
+        /* ==================================
+           UPDATE COUNTDOWN
+        ================================== */
+
+        function updateCountdown() {
+
+
+            const now =
+                Date.now();
+
+
+            const distance =
+                birthday - now;
+
+
+
+            /* Birthday has arrived */
+
+            if (distance <= 0) {
+
+                countdownScreen
+                    .classList
+                    .add("hidden");
+
+
+                birthdayScreen
+                    .classList
+                    .remove("hidden");
+
+
+                startConfetti();
+
+
+                return;
+            }
+
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+
+                    (
+                        distance %
+                        (1000 * 60 * 60 * 24)
+                    )
+                    /
+                    (1000 * 60 * 60)
+
+                );
+
+
+            const minutes =
+                Math.floor(
+
+                    (
+                        distance %
+                        (1000 * 60 * 60)
+                    )
+                    /
+                    (1000 * 60)
+
+                );
+
+
+            const seconds =
+                Math.floor(
+
+                    (
+                        distance %
+                        (1000 * 60)
+                    )
+                    /
+                    1000
+
+                );
+
+
+
+            document.getElementById(
+                "days"
+            ).textContent =
+                days;
+
+
+            document.getElementById(
+                "hours"
+            ).textContent =
+                String(hours)
+                    .padStart(2, "0");
+
+
+            document.getElementById(
+                "minutes"
+            ).textContent =
+                String(minutes)
+                    .padStart(2, "0");
+
+
+            document.getElementById(
+                "seconds"
+            ).textContent =
+                String(seconds)
+                    .padStart(2, "0");
+
+        }
+
+
+
+        updateCountdown();
+
+
+        setInterval(
+            updateCountdown,
             1000
-
         );
 
 
 
-    document.getElementById(
-        "days"
-    ).textContent =
-        days;
+        /* ==================================
+           FLOATING HEARTS
+        ================================== */
+
+        function createHeart() {
 
 
-    document.getElementById(
-        "hours"
-    ).textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
-
-}
-
-
-
-updateCountdown();
-
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-
-
-/* =================================
-   FLOATING HEARTS
-================================= */
-
-function createHeart() {
-
-
-    const heart =
-        document.createElement(
-            "div"
-        );
-
-
-    heart.className =
-        "heart";
-
-
-    heart.textContent =
-        Math.random() > 0.5
-        ? "♡"
-        : "💕";
-
-
-    heart.style.left =
-        Math.random() * 100 +
-        "vw";
-
-
-    heart.style.fontSize =
-        (
-            16 +
-            Math.random() * 14
-        ) +
-        "px";
-
-
-    heart.style.animationDuration =
-        (
-            6 +
-            Math.random() * 4
-        ) +
-        "s";
-
-
-    document.body.appendChild(
-        heart
-    );
-
-
-    setTimeout(
-        () => heart.remove(),
-        10000
-    );
-
-}
-
-
-setInterval(
-    createHeart,
-    1300
-);
-
-
-
-/* =================================
-   BIRTHDAY CONFETTI
-================================= */
-
-let confettiStarted =
-    false;
-
-
-
-function startConfetti() {
-
-
-    if (confettiStarted)
-        return;
-
-
-    confettiStarted =
-        true;
-
-
-
-    setInterval(() => {
-
-
-        for (
-            let i = 0;
-            i < 8;
-            i++
-        ) {
-
-
-            const c =
+            const heart =
                 document.createElement(
                     "div"
                 );
 
 
-            c.className =
-                "confetti";
+            heart.className =
+                "heart";
 
 
-            c.style.left =
-                Math.random() * 100 +
-                "vw";
-
-
-            c.style.animationDuration =
-                (
-                    2.5 +
-                    Math.random() * 2
-                ) +
-                "s";
-
-
-            const shapes = [
-                "🎉",
+            const hearts = [
+                "♡",
                 "💕",
-                "✨",
-                "🎀",
-                "💗"
+                "💗",
+                "💖"
             ];
 
 
-            c.textContent =
-                shapes[
+            heart.textContent =
+                hearts[
                     Math.floor(
                         Math.random() *
-                        shapes.length
+                        hearts.length
                     )
                 ];
 
 
+            heart.style.left =
+                Math.random() * 100 +
+                "vw";
+
+
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 15
+                ) +
+                "px";
+
+
+            heart.style.animationDuration =
+                (
+                    6 +
+                    Math.random() * 4
+                ) +
+                "s";
+
+
             document.body.appendChild(
-                c
+                heart
             );
 
 
             setTimeout(
-                () => c.remove(),
-                5000
+                () => heart.remove(),
+                10000
             );
 
         }
 
 
-    }, 700);
 
-}
+        setInterval(
+            createHeart,
+            1500
+        );
 
-</script>
+
+
+        /* ==================================
+           BIRTHDAY CONFETTI
+        ================================== */
+
+        let confettiStarted =
+            false;
+
+
+
+        function startConfetti() {
+
+
+            if (confettiStarted)
+                return;
+
+
+            confettiStarted =
+                true;
+
+
+
+            setInterval(() => {
+
+
+                for (
+                    let i = 0;
+                    i < 7;
+                    i++
+                ) {
+
+
+                    const c =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    c.className =
+                        "confetti";
+
+
+                    c.style.left =
+                        Math.random() *
+                        100 +
+                        "vw";
+
+
+                    c.style.animationDuration =
+                        (
+                            2.5 +
+                            Math.random() * 2
+                        ) +
+                        "s";
+
+
+                    const shapes = [
+                        "🎉",
+                        "💕",
+                        "✨",
+                        "🎀",
+                        "💗"
+                    ];
+
+
+                    c.textContent =
+                        shapes[
+                            Math.floor(
+                                Math.random() *
+                                shapes.length
+                            )
+                        ];
+
+
+                    document.body.appendChild(
+                        c
+                    );
+
+
+                    setTimeout(
+                        () => c.remove(),
+                        5000
+                    );
+
+                }
+
+
+            }, 800);
+
+        }
+
+    </script>
 
 
 </body>
 
-</html>
+</html>                
